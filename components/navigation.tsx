@@ -1,51 +1,56 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { Menu, X, Moon, Sun } from "lucide-react";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isDark, setIsDark] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
     // Check initial theme
-    const isDarkMode = document.documentElement.classList.contains('dark')
-    setIsDark(isDarkMode)
-  }, [])
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setIsDark(isDarkMode);
+  }, []);
 
   const toggleTheme = () => {
-    const htmlElement = document.documentElement
-    const newIsDark = !isDark
-    
+    const htmlElement = document.documentElement;
+    const newIsDark = !isDark;
+
     if (newIsDark) {
-      htmlElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
+      htmlElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      htmlElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
+      htmlElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-    
-    setIsDark(newIsDark)
-  }
+
+    setIsDark(newIsDark);
+  };
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
-  ]
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="#home" className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+          <Link
+            href="#home"
+            className="text-2xl font-bold bg-linear-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+          >
             MF
           </Link>
 
@@ -83,7 +88,16 @@ export default function Navigation() {
               </button>
             )}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              ref={menuButtonRef}
+              onClick={() => {
+                const next = !isOpen;
+                setIsOpen(next);
+                // focus first link when opening
+                if (next)
+                  setTimeout(() => firstMenuLinkRef.current?.focus(), 0);
+              }}
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav"
               className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -93,13 +107,23 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-neutral-200 dark:border-neutral-800">
-            {navItems.map((item) => (
+          <div
+            id="mobile-nav"
+            className="md:hidden pb-4 space-y-2 border-t border-neutral-200 dark:border-neutral-800"
+            role="menu"
+          >
+            {navItems.map((item, i) => (
               <Link
                 key={item.href}
                 href={item.href}
+                ref={i === 0 ? firstMenuLinkRef : undefined}
+                role="menuitem"
                 className="block px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  // return focus to button
+                  setTimeout(() => menuButtonRef.current?.focus(), 0);
+                }}
               >
                 {item.label}
               </Link>
@@ -108,5 +132,5 @@ export default function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }
