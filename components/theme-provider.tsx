@@ -19,21 +19,6 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  const toggleTheme = () => {
-    const htmlElement = document.documentElement
-    const isDark = htmlElement.classList.contains('dark')
-    
-    if (isDark) {
-      htmlElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    } else {
-      htmlElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    }
-    
-    window.dispatchEvent(new Event('themechange'))
-  }
-
   if (!mounted) return <>{children}</>
 
   return (
