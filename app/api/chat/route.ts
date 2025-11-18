@@ -1,6 +1,5 @@
 import { openai } from '@ai-sdk/openai'
 import { generateText } from 'ai'
-import { z } from 'zod'
 
 // Portfolio data context
 const portfolioData = {
@@ -79,7 +78,7 @@ export async function POST(req: Request) {
     }
 
     // Prepare conversation history for context
-    const conversationHistory = history?.map((msg: any) => ({
+    const conversationHistory = history?.map((msg: { role: string; content: string }) => ({
       role: msg.role,
       content: msg.content,
     })) || []
@@ -92,7 +91,7 @@ export async function POST(req: Request) {
         { role: 'user', content: message },
       ],
       temperature: 0.7,
-      maxTokens: 300,
+      maxOutputTokens: 300,
     })
 
     return Response.json({ reply: text })
