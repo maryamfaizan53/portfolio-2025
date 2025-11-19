@@ -6,12 +6,13 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     {
-      title: "ShopCo – E-Commerce Platform",
+      title: "Furnisite – E-Commerce Platform",
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/ecommerce-shopping-platform.jpg",
-      liveUrl: "https://portfolio-nextjs-tailwind-flax.vercel.app",
+      image: "/public/furnisite.PNG",
+      liveUrl:
+        "https://main-hackathon-proj-final-updates-latest-v5.vercel.app/",
       githubUrl: "#",
       featured: true,
     },
@@ -20,9 +21,8 @@ export default function Projects() {
       description:
         "AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.",
       tech: ["Next.js", "OpenAI API", "React", "MongoDB", "Node.js"],
-      image: "/finance-dashboard-analytics.jpg",
-      liveUrl:
-        "https://vercel.com/maryams-projects-5804c59d?repo=https://github.com/maryamfaizan53/geniefy-my-finance",
+      image: "/public/financial.PNG",
+      liveUrl: "https://geniefy-my-finance-scss.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/geniefy-my-finance",
       featured: true,
     },
@@ -31,7 +31,7 @@ export default function Projects() {
       description:
         "Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.",
       tech: ["Next.js", "AI/ML", "React", "Python", "MongoDB"],
-      image: "/fashion-clothing-ai-recommendations.jpg",
+      image: "/public/style.PNG",
       liveUrl: "https://ai-fashion-ecommerce.lumi.ing",
       githubUrl: "#",
       featured: true,
@@ -39,9 +39,9 @@ export default function Projects() {
     {
       title: "Nexus AI Web Agency",
       description:
-        "Modern agency website showcasing automation tools and AI integration services. Demonstrates cutting-edge web design with interactive components.",
+        "Delivered to a client 'A Modern agency website showcasing automation tools and AI integration services. Demonstrates cutting-edge web design with interactive components'.",
       tech: ["Next.js", "Framer Motion", "TypeScript", "Tailwind CSS"],
-      image: "/agency-website-modern-design.jpg",
+      image: "/public/nexus.PNG",
       liveUrl: "https://nexus-ai-web-agency.vercel.app",
       githubUrl: "#",
     },
@@ -50,18 +50,77 @@ export default function Projects() {
       description:
         "Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.",
       tech: ["Next.js", "OpenAI", "React", "TypeScript", "Tailwind CSS"],
-      image: "/funny-app-entertainment.jpg",
-      liveUrl:
-        "https://vercel.com/maryams-projects-5804c59d?repo=https://github.com/maryamfaizan53/frontend_pickuplines",
+      image: "/public/pickup lines.PNG",
+      liveUrl: "https://frontend-pickuplines-2923.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/frontend_pickuplines",
     },
     {
       title: "AI Codes Hub",
       description:
-        "Comprehensive platform for AI-generated code tutorials and learning resources. Helps developers master AI integration and modern development practices.",
+        "Our Agency website, which offers services like , AI Automations, Agents development , Chatbot integrations, Web and App development , APIs integrations and all new techinnovations.",
       tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/coding-tutorial-platform.jpg",
+      image: "/public/aicodeshub.PNG",
       liveUrl: "https://www.aicodeshub.com",
+      githubUrl: "#",
+    },
+
+    {
+      title: "Fitlab AI Health Tracker",
+      description:
+        "Personalized fitness coaching, BMI analysis, and nutrition guidance powered by advanced AI. Get custom workout plans, healthy recipes, and real-time health insights tailored to your unique goals.",
+      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
+      image: "/public/food.PNG",
+      liveUrl: "https://bhook-khana-tracker.vercel.app/",
+      githubUrl: "#",
+    },
+
+    {
+      title: "ShopCo Ecommerce Website",
+      description:
+        "Delivered to a cleint 'A modern clothing website for a brand 'ShopCo' with headless cms integartion , Dashboard , Auth and stripe payment method.",
+      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
+      image: "/public/shopco.PNG",
+      liveUrl: "https://hackathon-main-project-2.vercel.app/",
+      githubUrl: "#",
+    },
+    {
+      title: "Realtime Dashboeard App with Database",
+      description:
+        "Real time Dashboard using sanity for products upgredations, admin handling , and app management systems.",
+      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
+      image: "/public/dashbord.PNG",
+      liveUrl:
+        "https://real-time-dashboard-with-mongodb-maryam.vercel.app/admin/login",
+      githubUrl: "#",
+    },
+
+    {
+      title: "Haveli Restaurant Website",
+      description:
+        "Our Agency website, which offers services like , AI Automations, Agents development , Chatbot integrations, Web and App development , APIs integrations and all new techinnovations.",
+      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
+      image: "/public/haveli.PNG",
+      liveUrl: "https://haveli-restaurant-zeta.vercel.app/",
+      githubUrl: "#",
+    },
+    {
+      title: "Fashion Fusion Blog Website",
+      description:
+        "Delivered to client 'Fashion blog website with API integartion for the dynamic updates of new blogs daily.",
+      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
+      image: "/public/fashion fusion.PNG",
+      liveUrl:
+        "https://blog-website-in-next-js-14-with-sanity-io-latest-ygqb.vercel.app/",
+      githubUrl: "#",
+    },
+
+    {
+      title: "AI Data Dashboard agentic System",
+      description:
+        "Data management system agent that fatch data of user and get beck to the streamlit UI.",
+      tech: ["Streamlit", "Openai", "Python", "Agentic system", "APIs"],
+      image: "/public/data.PNG",
+      liveUrl: "https://maryams-secure-data-system.streamlit.app/",
       githubUrl: "#",
     },
   ];

@@ -41,7 +41,7 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="/professional-ai-developer-woman.jpg"
+          poster="/public/mask-dp.jpg"
           onLoadedData={() => setVideoLoaded(true)}
           className="w-full h-full object-cover opacity-50"
         >
