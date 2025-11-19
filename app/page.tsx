@@ -24,7 +24,7 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
-      <ChatBot />
+      <ChatBot isOpen={chatOpen} onToggle={setChatOpen} />
     </main>
   )
 }

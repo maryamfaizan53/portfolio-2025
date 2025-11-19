@@ -1,129 +1,63 @@
-import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+'use client'
+
+import { motion } from 'framer-motion'
+import { ExternalLink, Github } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Projects() {
   const projects = [
     {
-      title: "Furnisite – E-Commerce Platform",
-      description:
-        "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
-      tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/public/furnisite.PNG",
-      liveUrl:
-        "https://main-hackathon-proj-final-updates-latest-v5.vercel.app/",
-      githubUrl: "#",
+      title: 'ShopCo – E-Commerce Platform',
+      description: 'Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.',
+      tech: ['Next.js', 'TypeScript', 'Stripe', 'Sanity CMS', 'Tailwind CSS'],
+      image: '/ecommerce-shopping-platform.jpg',
+      liveUrl: 'https://portfolio-nextjs-tailwind-flax.vercel.app',
+      githubUrl: '#',
       featured: true,
     },
     {
-      title: "Geniefy My Finance",
-      description:
-        "AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.",
-      tech: ["Next.js", "OpenAI API", "React", "MongoDB", "Node.js"],
-      image: "/public/financial.PNG",
-      liveUrl: "https://geniefy-my-finance-scss.vercel.app/",
-      githubUrl: "https://github.com/maryamfaizan53/geniefy-my-finance",
+      title: 'Geniefy My Finance',
+      description: 'AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.',
+      tech: ['Next.js', 'OpenAI API', 'React', 'MongoDB', 'Node.js'],
+      image: '/finance-dashboard-analytics.jpg',
+      liveUrl: 'https://vercel.com/maryams-projects-5804c59d?repo=https://github.com/maryamfaizan53/geniefy-my-finance',
+      githubUrl: 'https://github.com/maryamfaizan53/geniefy-my-finance',
       featured: true,
     },
     {
-      title: "AI Fashion Ecommerce",
-      description:
-        "Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.",
-      tech: ["Next.js", "AI/ML", "React", "Python", "MongoDB"],
-      image: "/public/style.PNG",
-      liveUrl: "https://ai-fashion-ecommerce.lumi.ing",
-      githubUrl: "#",
+      title: 'AI Fashion Ecommerce',
+      description: 'Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.',
+      tech: ['Next.js', 'AI/ML', 'React', 'Python', 'MongoDB'],
+      image: '/fashion-clothing-ai-recommendations.jpg',
+      liveUrl: 'https://ai-fashion-ecommerce.lumi.ing',
+      githubUrl: '#',
       featured: true,
     },
     {
-      title: "Nexus AI Web Agency",
-      description:
-        "Delivered to a client 'A Modern agency website showcasing automation tools and AI integration services. Demonstrates cutting-edge web design with interactive components'.",
-      tech: ["Next.js", "Framer Motion", "TypeScript", "Tailwind CSS"],
-      image: "/public/nexus.PNG",
-      liveUrl: "https://nexus-ai-web-agency.vercel.app",
-      githubUrl: "#",
+      title: 'Nexus AI Web Agency',
+      description: 'Modern agency website showcasing automation tools and AI integration services. Demonstrates cutting-edge web design with interactive components.',
+      tech: ['Next.js', 'Framer Motion', 'TypeScript', 'Tailwind CSS'],
+      image: '/agency-website-modern-design.jpg',
+      liveUrl: 'https://nexus-ai-web-agency.vercel.app',
+      githubUrl: '#',
     },
     {
-      title: "Pickup Lines Generator",
-      description:
-        "Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.",
-      tech: ["Next.js", "OpenAI", "React", "TypeScript", "Tailwind CSS"],
-      image: "/public/pickup lines.PNG",
-      liveUrl: "https://frontend-pickuplines-2923.vercel.app/",
-      githubUrl: "https://github.com/maryamfaizan53/frontend_pickuplines",
+      title: 'Pickup Lines Generator',
+      description: 'Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.',
+      tech: ['Next.js', 'OpenAI', 'React', 'TypeScript', 'Tailwind CSS'],
+      image: '/funny-app-entertainment.jpg',
+      liveUrl: 'https://vercel.com/maryams-projects-5804c59d?repo=https://github.com/maryamfaizan53/frontend_pickuplines',
+      githubUrl: 'https://github.com/maryamfaizan53/frontend_pickuplines',
     },
     {
-      title: "AI Codes Hub",
-      description:
-        "Our Agency website, which offers services like , AI Automations, Agents development , Chatbot integrations, Web and App development , APIs integrations and all new techinnovations.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/aicodeshub.PNG",
-      liveUrl: "https://www.aicodeshub.com",
-      githubUrl: "#",
+      title: 'AI Codes Hub',
+      description: 'Comprehensive platform for AI-generated code tutorials and learning resources. Helps developers master AI integration and modern development practices.',
+      tech: ['Next.js', 'React', 'Sanity CMS', 'Node.js', 'MongoDB'],
+      image: '/coding-tutorial-platform.jpg',
+      liveUrl: 'https://www.aicodeshub.com',
+      githubUrl: '#',
     },
-
-    {
-      title: "Fitlab AI Health Tracker",
-      description:
-        "Personalized fitness coaching, BMI analysis, and nutrition guidance powered by advanced AI. Get custom workout plans, healthy recipes, and real-time health insights tailored to your unique goals.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/food.PNG",
-      liveUrl: "https://bhook-khana-tracker.vercel.app/",
-      githubUrl: "#",
-    },
-
-    {
-      title: "ShopCo Ecommerce Website",
-      description:
-        "Delivered to a cleint 'A modern clothing website for a brand 'ShopCo' with headless cms integartion , Dashboard , Auth and stripe payment method.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/shopco.PNG",
-      liveUrl: "https://hackathon-main-project-2.vercel.app/",
-      githubUrl: "#",
-    },
-    {
-      title: "Realtime Dashboeard App with Database",
-      description:
-        "Real time Dashboard using sanity for products upgredations, admin handling , and app management systems.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/dashbord.PNG",
-      liveUrl:
-        "https://real-time-dashboard-with-mongodb-maryam.vercel.app/admin/login",
-      githubUrl: "#",
-    },
-
-    {
-      title: "Haveli Restaurant Website",
-      description:
-        "Our Agency website, which offers services like , AI Automations, Agents development , Chatbot integrations, Web and App development , APIs integrations and all new techinnovations.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/haveli.PNG",
-      liveUrl: "https://haveli-restaurant-zeta.vercel.app/",
-      githubUrl: "#",
-    },
-    {
-      title: "Fashion Fusion Blog Website",
-      description:
-        "Delivered to client 'Fashion blog website with API integartion for the dynamic updates of new blogs daily.",
-      tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/public/fashion fusion.PNG",
-      liveUrl:
-        "https://blog-website-in-next-js-14-with-sanity-io-latest-ygqb.vercel.app/",
-      githubUrl: "#",
-    },
-
-    {
-      title: "AI Data Dashboard agentic System",
-      description:
-        "Data management system agent that fatch data of user and get beck to the streamlit UI.",
-      tech: ["Streamlit", "Openai", "Python", "Agentic system", "APIs"],
-      image: "/public/data.PNG",
-      liveUrl: "https://maryams-secure-data-system.streamlit.app/",
-      githubUrl: "#",
-    },
-  ];
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -133,7 +67,7 @@ export default function Projects() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -142,13 +76,10 @@ export default function Projects() {
       y: 0,
       transition: { duration: 0.6 },
     },
-  };
+  }
 
   return (
-    <section
-      id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950"
-    >
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -173,37 +104,27 @@ export default function Projects() {
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -8 }}
-              className={`group rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20 ${
-                project.featured ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
+              className={`group rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20 ${project.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
-                <Image
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
+                <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  width={500}
-                  height={500}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-neutral-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Content */}
               <div className="p-6 bg-white dark:bg-neutral-800">
                 {project.featured && (
                   <div className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 rounded-full mb-3">
-                    <span className="text-xs font-semibold text-primary-600 dark:text-primary-400">
-                      Featured
-                    </span>
+                    <span className="text-xs font-semibold text-primary-600 dark:text-primary-400">Featured</span>
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">{project.title}</h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4 line-clamp-3">{project.description}</p>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -223,12 +144,12 @@ export default function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-linear-to-r from-primary-600 to-primary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-200"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-200"
                   >
                     Live
                     <ExternalLink size={16} />
                   </a>
-                  {project.githubUrl !== "#" && (
+                  {project.githubUrl !== '#' && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -263,5 +184,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

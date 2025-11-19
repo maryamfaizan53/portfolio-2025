@@ -1,29 +1,17 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    {
-      icon: Github,
-      href: "https://github.com/maryamfaizan53",
-      label: "GitHub",
-    },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/maryam-faizan",
-      label: "LinkedIn",
-    },
-    {
-      icon: Mail,
-      href: "mailto:maryam.faizanmianoor@gmail.com",
-      label: "Email",
-    },
-  ];
+    { icon: Github, href: 'https://github.com/maryamfaizan53', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/maryam-faizan', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:maryam.faizanmianoor@gmail.com', label: 'Email' },
+  ]
 
   return (
     <footer className="bg-neutral-900 dark:bg-neutral-950 text-neutral-100 border-t border-neutral-800">
@@ -38,10 +26,7 @@ export default function Footer() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div className="space-y-4">
-              <Link
-                href="#home"
-                className="text-2xl font-bold bg-linear-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent"
-              >
+              <Link href="#home" className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">
                 MF
               </Link>
               <p className="text-neutral-400 leading-relaxed">
@@ -53,24 +38,14 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold mb-4">Navigation</h4>
               <ul className="space-y-2 text-neutral-400">
-                {[
-                  "Home",
-                  "About",
-                  "Skills",
-                  "Projects",
-                  "Experience",
-                  "Contact",
-                ].map((item) => (
+                {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
                   <li key={item}>
                     <Link
                       href={`#${item.toLowerCase()}`}
                       className="hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
                     >
                       {item}
-                      <ExternalLink
-                        size={14}
-                        className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      />
+                      <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
                   </li>
                 ))}
@@ -82,30 +57,17 @@ export default function Footer() {
               <h4 className="font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-neutral-400">
                 <li>
-                  <a
-                    href="https://github.com/maryamfaizan53"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary-400 transition-colors"
-                  >
+                  <a href="https://github.com/maryamfaizan53" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">
                     GitHub
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://linkedin.com/in/maryam-faizan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary-400 transition-colors"
-                  >
+                  <a href="https://linkedin.com/in/maryam-faizan" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">
                     LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="mailto:maryam.faizanmianoor@gmail.com"
-                    className="hover:text-primary-400 transition-colors"
-                  >
+                  <a href="mailto:maryam.faizanmianoor@gmail.com" className="hover:text-primary-400 transition-colors">
                     Email
                   </a>
                 </li>
@@ -132,7 +94,7 @@ export default function Footer() {
           <div className="border-t border-neutral-800 py-8 space-y-6">
             <div className="flex justify-center gap-4">
               {socialLinks.map((link) => {
-                const Icon = link.icon;
+                const Icon = link.icon
                 return (
                   <motion.a
                     key={link.label}
@@ -146,20 +108,19 @@ export default function Footer() {
                   >
                     <Icon size={24} />
                   </motion.a>
-                );
+                )
               })}
             </div>
 
             {/* Copyright */}
             <div className="text-center pt-4 border-t border-neutral-800">
               <p className="text-neutral-400 text-sm">
-                © {currentYear} Maryam Faizan. All rights reserved. | Built with
-                Next.js, React & Tailwind CSS
+                © {currentYear} Maryam Faizan. All rights reserved. | Built with Next.js, React & Tailwind CSS
               </p>
             </div>
           </div>
         </motion.div>
       </div>
     </footer>
-  );
+  )
 }

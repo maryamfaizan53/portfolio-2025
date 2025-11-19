@@ -1,163 +1,211 @@
-"use client";
+'use client'
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Send, Bot, User, X, Loader2 } from "lucide-react";
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { MessageCircle, X, Send, Loader2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 interface Message {
-  role: "user" | "assistant";
-  content: string;
+  role: 'user' | 'assistant'
+  content: string
 }
 
-export default function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+interface ChatBotProps {
+  isOpen: boolean
+  onToggle: (open: boolean) => void
+}
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(scrollToBottom, [messages]);
+export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
+  const [messages, setMessages] = useState<Message[]>([])
+  const [input, setInput] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (isOpen) {
-      // Add initial greeting from the bot when the chat opens
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
+
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
       setMessages([
         {
-          role: "assistant",
-          content:
-            "Hello! I'm Maryam's AI assistant. How can I help you today?",
+          role: 'assistant',
+          content: "Hi! I'm Maryam's AI Personal Assistant. Welcome! Feel free to ask me about her skills, projects, experience, or anything else you'd like to know. 😊",
         },
-      ]);
+      ])
     }
-  }, [isOpen]);
+  }, [isOpen])
 
-  const handleSend = async () => {
-    if (input.trim() === "") return;
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!input.trim() || loading) return
 
-    const userMessage: Message = { role: "user", content: input };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-    setIsLoading(true);
+    const userMessage = input.trim()
+    setInput('')
+    setMessages((prev) => [...prev, { role: 'user', content: userMessage }])
+    setLoading(true)
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: input,
+          message: userMessage,
           history: messages,
         }),
-      });
+      })
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      const data = await response.json()
+
+      if (data.error) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'assistant',
+            content: "Sorry, I encountered an error. Please try again or contact Maryam directly.",
+          },
+        ])
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', content: data.reply },
+        ])
       }
-
-      const data = await response.json();
-      const botMessage: Message = { role: "assistant", content: data.reply };
-      setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      const errorMessage: Message = {
-        role: "assistant",
-        content: "Sorry, something went wrong. Please try again.",
-      };
-      setMessages((prev) => [...prev, errorMessage]);
+      console.error('[v0] Error sending message:', error)
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: "I encountered an error. Please try again later.",
+        },
+      ])
     } finally {
-      setIsLoading(false);
+      setLoading(false)
     }
-  };
+  }
+
+  if (!mounted) return null
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-primary-600 text-white p-4 rounded-full shadow-lg"
-          aria-label="Toggle chatbot"
-        >
-          {isOpen ? <X size={24} /> : <Bot size={24} />}
-        </motion.button>
-      </div>
+      {/* Floating Chat Button */}
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => onToggle(!isOpen)}
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center"
+        aria-label="Open chat"
+      >
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 90 }}
+            >
+              <X size={24} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open"
+              initial={{ opacity: 0, rotate: 90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: -90 }}
+            >
+              <MessageCircle size={24} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-20 right-6 w-80 h-96 bg-white dark:bg-neutral-800 rounded-lg shadow-xl flex flex-col z-50"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-24px)] h-[500px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700"
           >
             {/* Header */}
-            <div className="p-4 border-b dark:border-neutral-700">
-              <h3 className="font-bold text-lg">AI Assistant</h3>
+            <div className="bg-gradient-to-r from-primary-600 to-primary-500 text-white p-4 rounded-t-2xl">
+              <h3 className="font-semibold text-lg">Maryam's AI Assistant</h3>
+              <p className="text-sm text-primary-50 opacity-90">Ask me anything!</p>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto">
-              {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`flex gap-2 my-2 ${
-                    msg.role === "user" ? "justify-end" : "justify-start"
-                  }`}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-neutral-50 dark:bg-neutral-800/50">
+              {messages.map((msg, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  {msg.role === "assistant" && (
-                    <Bot className="w-6 h-6 text-primary-500" />
-                  )}
                   <div
-                    className={`max-w-xs px-3 py-2 rounded-lg ${
-                      msg.role === "user"
-                        ? "bg-primary-500 text-white"
-                        : "bg-neutral-200 dark:bg-neutral-700"
+                    className={`max-w-xs px-4 py-2 rounded-lg ${
+                      msg.role === 'user'
+                        ? 'bg-primary-600 text-white rounded-br-none'
+                        : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 rounded-bl-none'
                     }`}
                   >
-                    {msg.content}
+                    <p className="text-sm leading-relaxed">{msg.content}</p>
                   </div>
-                  {msg.role === "user" && (
-                    <User className="w-6 h-6 text-neutral-500" />
-                  )}
-                </div>
+                </motion.div>
               ))}
-              {isLoading && (
-                <div className="flex justify-start gap-2 my-2">
-                  <Bot className="w-6 h-6 text-primary-500" />
-                  <div className="max-w-xs px-3 py-2 rounded-lg bg-neutral-200 dark:bg-neutral-700">
-                    <Loader2 className="w-5 h-5 animate-spin" />
+              {loading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex justify-start"
+                >
+                  <div className="bg-neutral-200 dark:bg-neutral-700 px-4 py-2 rounded-lg rounded-bl-none">
+                    <Loader2 size={20} className="animate-spin text-primary-600" />
                   </div>
-                </div>
+                </motion.div>
               )}
               <div ref={messagesEndRef} />
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t dark:border-neutral-700">
+            <form
+              onSubmit={handleSendMessage}
+              className="p-4 border-t border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900"
+            >
               <div className="flex gap-2">
-                <input
+                <Input
                   type="text"
+                  placeholder="Ask anything..."
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Ask me anything..."
-                  className="flex-1 px-3 py-2 rounded-lg border dark:border-neutral-600 dark:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  disabled={loading}
+                  className="flex-1 text-sm"
                 />
-                <button
-                  onClick={handleSend}
-                  className="p-2 bg-primary-600 text-white rounded-lg disabled:opacity-50"
-                  disabled={isLoading}
+                <Button
+                  type="submit"
+                  disabled={loading || !input.trim()}
+                  size="icon"
+                  className="bg-primary-600 hover:bg-primary-700 text-white"
                 >
-                  <Send size={20} />
-                </button>
+                  <Send size={18} />
+                </Button>
               </div>
-            </div>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }
