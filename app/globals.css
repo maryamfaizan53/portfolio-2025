@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
 /* Semantic color system replacing hardcoded colors */
 @theme inline {
