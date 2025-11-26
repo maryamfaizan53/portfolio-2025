@@ -4,9 +4,7 @@ import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-
 export default function Hero() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -89,7 +87,7 @@ export default function Hero() {
 
               <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl z-10 group-hover:scale-105 transition-transform duration-500">
                 <img
-                  src="/professional-ai-developer-woman.jpg"
+                  src="/public/mask-dp.jpg"
                   alt="Maryam Faizan"
                   className="w-full h-full object-cover"
                 />
