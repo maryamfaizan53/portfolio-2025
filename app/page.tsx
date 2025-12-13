@@ -1,29 +1,27 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Navigation from '@/components/navigation'
-import Hero from '@/components/sections/hero'
-import About from '@/components/sections/about'
-import Skills from '@/components/sections/skills'
-import Projects from '@/components/sections/projects'
-import Experience from '@/components/sections/experience'
-import Contact from '@/components/sections/contact'
-import Footer from '@/components/footer'
-import ChatBot from '@/components/chatbot'
+import { useState } from "react"
+import Navigation from "@/components/navigation"
+import Hero from "@/components/sections/hero"
+import About from "@/components/sections/about"
+import Skills from "@/components/sections/skills"
+import Projects from "@/components/sections/projects"
+import Experience from "@/components/sections/experience"
+import Contact from "@/components/sections/contact"
+import ChatBot from "@/components/chatbot"
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false)
 
   return (
-    <main className="min-h-screen bg-white dark:bg-neutral-950 relative">
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 relative overflow-x-hidden">
       <Navigation />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
-      <Experience />
       <Contact />
-      <Footer />
       <ChatBot isOpen={chatOpen} onToggle={setChatOpen} />
     </main>
   )

@@ -1,75 +1,197 @@
-@import "tailwindcss/preflight";
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
 
 /* Semantic color system replacing hardcoded colors */
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback';
-  
+  --font-sans: "Inter", "Inter Fallback";
+
   /* Primary Colors - Deep Red/Wine Palette (from palette 2 - sophisticated) */
-  --color-primary-50: #F9F4F2;
-  --color-primary-100: #F2E8E5;
-  --color-primary-200: #E6D0CA;
-  --color-primary-300: #D9B8AF;
-  --color-primary-400: #D76C82;
-  --color-primary-500: #CF0F47;
-  --color-primary-600: #B03052;
+  --color-primary-50: #f9f4f2;
+  --color-primary-100: #f2e8e5;
+  --color-primary-200: #e6d0ca;
+  --color-primary-300: #d9b8af;
+  --color-primary-400: #d76c82;
+  --color-primary-500: #cf0f47;
+  --color-primary-600: #b03052;
   --color-primary-700: #943346;
-  --color-primary-800: #7D3A42;
-  --color-primary-900: #3D0301;
-  
+  --color-primary-800: #7d3a42;
+  --color-primary-900: #3d0301;
+
   /* Added Vibrant "Fun" Accents for playful elements */
-  --color-accent-teal: #2DD4BF;   /* Teal-400: Fresh & Modern */
-  --color-accent-yellow: #FBBF24; /* Amber-400: Energetic & Happy */
-  --color-accent-purple: #A78BFA; /* Violet-400: Creative & Magic */
-  --color-accent-pink: #F472B6;   /* Pink-400: Playful & Sweet */
+  --color-accent-teal: #2dd4bf; /* Teal-400: Fresh & Modern */
+  --color-accent-yellow: #fbbf24; /* Amber-400: Energetic & Happy */
+  --color-accent-purple: #a78bfa; /* Violet-400: Creative & Magic */
+  --color-accent-pink: #f472b6; /* Pink-400: Playful & Sweet */
 
   /* Secondary Colors - Warm Cream Accent */
-  --color-secondary-50: #FEFDFB;
-  --color-secondary-100: #FDF9F5;
-  --color-secondary-200: #F5EFEA;
-  --color-secondary-300: #EBE8DB;
-  --color-secondary-400: #E1DCC8;
-  --color-secondary-500: #D7D1B5;
-  
+  --color-secondary-50: #fefdfb;
+  --color-secondary-100: #fdf9f5;
+  --color-secondary-200: #f5efea;
+  --color-secondary-300: #ebe8db;
+  --color-secondary-400: #e1dcc8;
+  --color-secondary-500: #d7d1b5;
+
   /* Neutral Colors */
-  --color-neutral-50: #FAFAF9;
-  --color-neutral-100: #F3F3F1;
-  --color-neutral-200: #E5E5E0;
-  --color-neutral-300: #D4D4CC;
-  --color-neutral-400: #A3A39A;
-  --color-neutral-500: #71706A;
-  --color-neutral-600: #3F3D37;
-  --color-neutral-700: #2D2B27;
-  --color-neutral-800: #1A1815;
-  --color-neutral-900: #0F0D0A;
-  --color-neutral-950: #000000;
-  
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Accent colors - subtle teal for links */
+  --color-accent: #5a8f8d;
+  --color-accent-dark: #4a7573;
+
   /* Semantic Token Aliases */
-  --color-background: #FFFFFF;
-  --color-background-alt: #F9F8F6;
-  --color-foreground: #1A1815;
-  --color-foreground-muted: #71706A;
-  
+  --color-background: #ffffff;
+  --color-background-alt: #f9f8f6;
+  --color-foreground: #1a1815;
+  --color-foreground-muted: #71706a;
+
   /* Dark Mode */
-  --color-dark-background: #0F0D0A;
-  --color-dark-background-alt: #1A1815;
-  --color-dark-foreground: #FAFAF9;
-  --color-dark-foreground-muted: #A3A39A;
-  
+  --color-dark-background: #0f0d0a;
+  --color-dark-background-alt: #1a1815;
+  --color-dark-foreground: #fafaf9;
+  --color-dark-foreground-muted: #a3a39a;
+
   /* Updated Accent Colors to use new vibrant variables */
-  --color-success: #34D399; /* Emerald-400 */
-  --color-warning: #FBBF24; /* Amber-400 */
-  --color-error: #FB7185;   /* Rose-400 */
-  --color-info: #38BDF8;    /* Sky-400 */
+  --color-success: #34d399; /* Emerald-400 */
+  --color-warning: #fbbf24; /* Amber-400 */
+  --color-error: #fb7185; /* Rose-400 */
+  --color-info: #38bdf8; /* Sky-400 */
+
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
     @apply border-neutral-200 dark:border-neutral-800;
+    @apply border-border outline-ring/50;
   }
-  
+
   body {
-    @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50;
+    @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -80,42 +202,45 @@
     inset: 0;
     z-index: -1;
     overflow: hidden;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F9F8F6 50%, #F2E8E5 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f9f8f6 50%, #f2e8e5 100%);
   }
 
   .dark .animated-background {
-    background: linear-gradient(135deg, #0F0D0A 0%, #1A1815 50%, #2D2B27 100%);
+    background: linear-gradient(135deg, #0f0d0a 0%, #1a1815 50%, #2d2b27 100%);
   }
 
   .animated-background::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     /* Made background orbs more colorful and playful */
     background: radial-gradient(circle at 20% 50%, rgba(45, 212, 191, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%);
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
   .animated-background::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, 
-      transparent 0%, 
-      rgba(45, 212, 191, 0.05) 25%, 
-      transparent 50%, 
-      rgba(167, 139, 250, 0.05) 75%, 
-      transparent 100%);
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(45, 212, 191, 0.05) 25%,
+      transparent 50%,
+      rgba(167, 139, 250, 0.05) 75%,
+      transparent 100%
+    );
     animation: gradient-wave 10s linear infinite;
   }
 
   @keyframes gradient-shift {
-    0%, 100% { 
+    0%,
+    100% {
       opacity: 1;
     }
-    50% { 
+    50% {
       opacity: 0.8;
     }
   }
@@ -172,7 +297,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) translateX(0px);
     }
     25% {
@@ -207,21 +333,26 @@
   .dark .gradient-text-primary {
     @apply from-primary-400 via-accent-pink to-accent-teal;
   }
-  
+
   /* Added Fun Interaction Classes */
   .hover-bounce {
     @apply transition-transform duration-300 hover:-translate-y-2 hover:scale-105 active:scale-95;
   }
-  
+
   .hover-wiggle:hover {
     animation: wiggle 1s ease-in-out infinite;
   }
-  
+
   @keyframes wiggle {
-    0%, 100% { transform: rotate(-3deg); }
-    50% { transform: rotate(3deg); }
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
   }
-  
+
   .fun-shape {
     @apply absolute opacity-20 dark:opacity-10 pointer-events-none;
   }
@@ -321,6 +452,213 @@
     animation: burst-6 0.6s ease-out forwards;
     animation-delay: 0.25s;
   }
+
+  /* Mitchell Sparrow style concentric circles */
+  .circle-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Added parallax and scroll animations like Mitchell Sparrow */
+  @keyframes parallax-float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0) scale(1);
+    }
+    33% {
+      transform: translateY(-15px) translateX(10px) scale(1.02);
+    }
+    66% {
+      transform: translateY(10px) translateX(-5px) scale(0.98);
+    }
+  }
+
+  .parallax-circle {
+    animation: parallax-float 20s ease-in-out infinite;
+  }
+
+  .parallax-circle-slow {
+    animation: parallax-float 30s ease-in-out infinite;
+  }
+
+  .parallax-circle-reverse {
+    animation: parallax-float 25s ease-in-out infinite reverse;
+  }
+
+  /* Added smooth reveal animations on scroll */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Added colorful glow effects on hover */
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(45, 212, 191, 0.3), 0 0 40px rgba(244, 114, 182, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(45, 212, 191, 0.5), 0 0 60px rgba(244, 114, 182, 0.3);
+    }
+  }
+
+  .glow-on-hover:hover {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Enhanced concentric circles with parallax and rainbow gradients */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Removed default border styles since rainbow gradient is applied inline */
+
+  .circle-1 {
+    width: 90vmin;
+    height: 90vmin;
+    animation: parallax-float 20s ease-in-out infinite;
+  }
+
+  .circle-2 {
+    width: 70vmin;
+    height: 70vmin;
+    animation: parallax-float 25s ease-in-out infinite reverse;
+  }
+
+  .circle-3 {
+    width: 50vmin;
+    height: 50vmin;
+    animation: parallax-float 30s ease-in-out infinite;
+  }
+
+  /* Enhanced hover effects on circles with more opacity */
+  .circle-1:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  .circle-2:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  .circle-3:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  @keyframes float-gentle {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-10px) scale(1.02);
+    }
+  }
+
+  .profile-circle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  /* Minimalist skill hover effect */
+  .skill-item {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .skill-item:hover .skill-percentage {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .skill-percentage {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+
+  /* Clean section transitions */
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+
+  /* Circular home button */
+  .home-button {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .home-button:hover {
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .home-button {
+    background: var(--color-accent-dark);
+  }
 }
 
 @layer utilities {
@@ -342,18 +680,18 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   /* Semantic utility classes */
   .btn-primary {
     /* Added gradient and bounce to buttons */
     @apply bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-accent-pink text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 rounded-full px-8 py-3;
   }
-  
+
   .btn-secondary {
     /* Rounded full for friendlier look */
     @apply border-2 border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-neutral-50 hover:border-primary-400 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 font-bold transition-all duration-200 rounded-full px-8 py-3 bg-transparent;
   }
-  
+
   .badge-primary {
     /* More vibrant badges */
     @apply bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 border border-primary-100 dark:border-primary-800/50 rounded-full px-4 py-1 font-medium;
@@ -362,27 +700,73 @@
   .badge-primary-dark {
     @apply bg-primary-900/30 text-primary-400 border border-primary-800/50 rounded-full;
   }
-  
+
   .heading-section {
     @apply text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight;
   }
-  
+
   .underline-accent {
     /* Multi-color gradient underline */
     @apply w-24 h-1.5 bg-gradient-to-r from-primary-500 via-accent-pink to-accent-teal rounded-full mt-2;
   }
-  
+
   .text-muted {
     @apply text-neutral-600 dark:text-neutral-400;
   }
-  
+
   .card-glass {
     /* Added backdrop blur and softer borders */
     @apply bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md rounded-2xl p-8 border border-white/20 dark:border-white/10 shadow-xl shadow-neutral-200/20 dark:shadow-black/20;
   }
-  
+
   .card-glass-hover {
     /* Fun hover lift effect */
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-200 dark:hover:border-primary-800;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Added animation utility classes */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fade-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fade-in-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Staggered animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
   }
 }
