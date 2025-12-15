@@ -12,9 +12,16 @@ export default function Navigation() {
 
   useEffect(() => {
     setMounted(true)
-    // Check initial theme
-    const isDarkMode = document.documentElement.classList.contains("dark")
+    const savedTheme = localStorage.getItem("theme") || "dark"
+    const isDarkMode = savedTheme === "dark"
     setIsDark(isDarkMode)
+
+    // Apply theme to document
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
   }, [])
 
   const toggleTheme = () => {
@@ -30,6 +37,7 @@ export default function Navigation() {
     }
 
     setIsDark(newIsDark)
+    window.dispatchEvent(new CustomEvent("themeChanged", { detail: { isDark: newIsDark } }))
   }
 
   const navItems = [
@@ -123,14 +131,16 @@ export default function Navigation() {
       <nav className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link href="#home" className="group relative flex items-center gap-2">
-              <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.5 }} className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-purple blur-lg opacity-50 rounded-full group-hover:opacity-80 transition-opacity" />
-                <span className="relative text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
-                  MF
-                </span>
-              </motion.div>
+            <Link href="#home" className="group relative">
+              <motion.span
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="text-2xl font-serif font-bold bg-gradient-to-r from-primary-600 via-accent-pink to-accent-purple bg-clip-text text-transparent hover:from-accent-teal hover:via-accent-pink hover:to-primary-600 transition-all duration-500"
+                style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
+              >
+                Maryam Faizan
+              </motion.span>
+              <motion.span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-accent-teal via-accent-pink to-accent-purple group-hover:w-full transition-all duration-300 rounded-full" />
             </Link>
 
             {/* Desktop Navigation */}

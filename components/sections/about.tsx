@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 
 export default function About() {
   return (
-    <section id="about" className="section bg-white dark:bg-neutral-900">
-      <div className="max-w-3xl mx-auto">
+    <section id="about" className="section min-h-screen bg-white dark:bg-neutral-950">
+      <div className="max-w-3xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -14,15 +14,28 @@ export default function About() {
           className="space-y-8"
         >
           {/* Section Heading */}
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white">About</h2>
-            <div className="w-16 h-px bg-neutral-300 dark:bg-neutral-700 mx-auto"></div>
+          <div className="text-center space-y-6 mb-16">
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ type: "spring", duration: 0.6 }}
+              className="inline-block text-6xl mb-4"
+            >
+              👩‍💻
+            </motion.div>
+            <h2 className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-white">About Me</h2>
+            <div className="underline-accent mx-auto"></div>
           </div>
 
           {/* Subtitle */}
-          <h3 className="text-2xl md:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 text-center">
-            Here is a little background
-          </h3>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="bg-gradient-to-r from-accent-teal/10 via-accent-pink/10 to-accent-purple/10 rounded-2xl p-8 border-2 border-accent-teal/20"
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-accent-teal via-accent-pink to-accent-purple bg-clip-text text-transparent text-center">
+              Here is a little background
+            </h3>
+          </motion.div>
 
           {/* Bio Content */}
           <div className="space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">

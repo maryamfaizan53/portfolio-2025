@@ -262,62 +262,54 @@ export default function Hero() {
             </motion.span>
           </motion.p>
 
-          {/* Name with Typing Effect */}
+          {/* Name with Better Formatting */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white"
+            className="text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white space-y-2"
           >
-            {words.map((word, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-light"
+            >
+              <span className="text-neutral-600 dark:text-neutral-400">Hi, I am</span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className="relative"
+            >
               <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.8 + index * 0.2,
-                  ease: "easeOut",
+                className="relative inline-block"
+                animate={{
+                  backgroundPosition: ["0%", "100%", "0%"],
                 }}
-                className={
-                  word === "Maryam" || word === "Faizan"
-                    ? "bg-gradient-to-r from-primary-500 via-accent-pink to-accent-purple bg-clip-text text-transparent inline-block"
-                    : "inline-block"
-                }
-                style={
-                  word === "Maryam" || word === "Faizan"
-                    ? {
-                        backgroundSize: "200% 100%",
-                      }
-                    : undefined
-                }
+                transition={{
+                  duration: 4,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
+                style={{
+                  backgroundImage: "linear-gradient(to right, #CF0F47, #f472b6, #a78bfa, #2dd4bf)",
+                  backgroundSize: "200% 100%",
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
               >
-                {word === "Maryam" || word === "Faizan" ? (
-                  <motion.span
-                    animate={{
-                      backgroundPosition: ["0%", "100%", "0%"],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "linear",
-                    }}
-                    style={{
-                      backgroundImage: "linear-gradient(to right, #CF0F47, #f472b6, #a78bfa)",
-                      backgroundSize: "200% 100%",
-                      backgroundClip: "text",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                ) : (
-                  word
-                )}
-                {index < words.length - 1 && " "}
+                Maryam Faizan
               </motion.span>
-            ))}
+              <motion.div
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent-teal via-accent-pink to-accent-purple rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+              />
+            </motion.div>
           </motion.h1>
 
           {/* Navigation Links */}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Projects() {
   const projects = [
@@ -163,14 +164,13 @@ export default function Projects() {
               whileTap={{ scale: 0.98 }}
               className={`group rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20 ${project.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
-              {/* Image */}
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
-                <motion.img
+                <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1, rotate: 1 }}
-                  transition={{ duration: 0.4 }}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -180,7 +180,6 @@ export default function Projects() {
                 />
               </div>
 
-              {/* Content */}
               <div className="p-6 bg-white dark:bg-neutral-800">
                 {project.featured && (
                   <div className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 rounded-full mb-3">
@@ -192,7 +191,6 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.slice(0, 3).map((tech, i) => (
                     <span
@@ -204,7 +202,6 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex gap-3">
                   <a
                     href={project.liveUrl}
@@ -232,7 +229,6 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* View All Button */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

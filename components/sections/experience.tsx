@@ -1,35 +1,37 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { motion } from "framer-motion"
+import { CheckCircle2 } from "lucide-react"
 
 export default function Experience() {
   const experiences = [
     {
-      title: 'Agentic AI Developer',
-      company: 'Code Lab',
-      period: 'May 2024 – Present',
-      description: 'Developing agent-based AI applications using GPT APIs and RAG pipelines. Building RESTful and serverless APIs for LLM-powered services.',
+      title: "Agentic AI Developer",
+      company: "Code Lab",
+      period: "May 2024 – Present",
+      description:
+        "Developing agent-based AI applications using GPT APIs and RAG pipelines. Building RESTful and serverless APIs for LLM-powered services.",
       achievements: [
-        'Developed autonomous multi-agent workflows using Python and OpenAI SDK',
-        'Integrated AI agents into front-end systems using Next.js',
-        'Built and deployed AI-powered features to production',
-        'Collaborated with team on complex AI system architectures',
+        "Developed autonomous multi-agent workflows using Python and OpenAI SDK",
+        "Integrated AI agents into front-end systems using Next.js",
+        "Built and deployed AI-powered features to production",
+        "Collaborated with team on complex AI system architectures",
       ],
-      tech: ['OpenAI', 'Python', 'Next.js', 'RAG', 'APIs'],
+      tech: ["OpenAI", "Python", "Next.js", "RAG", "APIs"],
     },
     {
-      title: 'Full-Stack Developer',
-      company: 'Dev Hub',
-      period: 'Feb 2023 – Aug 2024',
-      description: 'Built autonomous workflows and optimized full-stack applications. Implemented CI/CD pipelines and improved system performance.',
+      title: "Full-Stack Developer",
+      company: "Dev Hub",
+      period: "Feb 2023 – Aug 2024",
+      description:
+        "Built autonomous workflows and optimized full-stack applications. Implemented CI/CD pipelines and improved system performance.",
       achievements: [
-        'Built autonomous multi-agent workflows using Python and OpenAI SDK',
-        'Developed frontend features with React.js/Next.js improving UX by 40%',
-        'Automated workflows using n8n for multi-step AI tasks',
-        'Optimized PostgreSQL queries reducing latency by 60%',
+        "Built autonomous multi-agent workflows using Python and OpenAI SDK",
+        "Developed frontend features with React.js/Next.js improving UX by 40%",
+        "Automated workflows using n8n for multi-step AI tasks",
+        "Optimized PostgreSQL queries reducing latency by 60%",
       ],
-      tech: ['Python', 'Next.js', 'React', 'n8n', 'PostgreSQL'],
+      tech: ["Python", "Next.js", "React", "n8n", "PostgreSQL"],
     },
   ]
 
@@ -53,17 +55,25 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-950">
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50 dark:bg-neutral-900">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="space-y-4 mb-16"
+          className="space-y-4 mb-16 text-center"
         >
+          <motion.div
+            initial={{ rotate: -10, scale: 0 }}
+            whileInView={{ rotate: 0, scale: 1 }}
+            transition={{ type: "spring", duration: 0.8 }}
+            className="inline-block text-6xl mb-4"
+          >
+            💼
+          </motion.div>
           <h2 className="heading-section">Experience & Education</h2>
-          <div className="underline-accent"></div>
+          <div className="underline-accent mx-auto"></div>
         </motion.div>
 
         {/* Experience Timeline */}
@@ -82,8 +92,10 @@ export default function Experience() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="group bg-white dark:bg-neutral-800 rounded-xl p-8 border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 hover:shadow-lg dark:hover:shadow-primary-500/10 transition-all duration-300"
+              className="group relative bg-white dark:bg-neutral-800 rounded-2xl p-8 border-2 border-neutral-200 dark:border-neutral-700 hover:border-accent-teal dark:hover:border-accent-pink hover:shadow-2xl hover:shadow-accent-teal/20 dark:hover:shadow-accent-pink/20 transition-all duration-300 hover:-translate-y-1"
             >
+              <div className="absolute -left-1 top-8 w-3 h-3 rounded-full bg-gradient-to-r from-accent-teal to-accent-pink group-hover:scale-150 transition-transform duration-300"></div>
+
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
                 <div>
                   <h4 className="text-xl font-bold text-neutral-900 dark:text-white">{exp.title}</h4>
@@ -107,7 +119,7 @@ export default function Experience() {
                 {exp.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full"
+                    className="text-xs px-3 py-1.5 bg-gradient-to-r from-primary-100 to-accent-teal/20 dark:from-primary-900 dark:to-accent-pink/20 text-primary-600 dark:text-primary-400 rounded-full border border-primary-200 dark:border-primary-800 hover:scale-110 transition-transform duration-200 cursor-default"
                   >
                     {tech}
                   </span>
@@ -125,31 +137,42 @@ export default function Experience() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">Education & Certifications</h3>
+          <h3 className="text-2xl font-bold text-neutral-900 dark:text-white flex items-center gap-3">
+            <span className="text-3xl">🎓</span>
+            Education & Certifications
+          </h3>
 
           <motion.div
-            whileHover={{ y: -5 }}
-            className="group bg-white dark:bg-neutral-800 rounded-xl p-8 border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 hover:shadow-lg dark:hover:shadow-primary-500/10 transition-all duration-300"
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="group bg-white dark:bg-neutral-800 rounded-2xl p-8 border-2 border-accent-purple/30 dark:border-accent-purple/30 hover:border-accent-purple dark:hover:border-accent-teal hover:shadow-2xl hover:shadow-accent-purple/20 dark:hover:shadow-accent-teal/20 transition-all duration-300"
           >
             <h4 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">B.Sc. in Environmental Sciences</h4>
             <p className="text-primary-600 dark:text-primary-400 font-semibold mb-3">Karachi University</p>
-            <p className="text-neutral-600 dark:text-neutral-300">Graduated 2022. Strong analytical foundation in research methodologies and data analysis.</p>
+            <p className="text-neutral-600 dark:text-neutral-300">
+              Graduated 2022. Strong analytical foundation in research methodologies and data analysis.
+            </p>
           </motion.div>
 
           {/* Additional Certifications */}
           <div className="grid md:grid-cols-2 gap-6">
             <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-neutral-800 rounded-xl p-6 border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300"
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="bg-white dark:bg-neutral-800 rounded-2xl p-6 border-2 border-accent-teal/30 hover:border-accent-teal hover:shadow-xl hover:shadow-accent-teal/20 transition-all duration-300"
             >
-              <h5 className="font-bold text-neutral-900 dark:text-white mb-2">Next.js Open Source Contributor</h5>
+              <h5 className="font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2">
+                <span>⭐</span>
+                Next.js Open Source Contributor
+              </h5>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">Active contributor to Next.js ecosystem</p>
             </motion.div>
             <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-neutral-800 rounded-xl p-6 border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300"
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="bg-white dark:bg-neutral-800 rounded-2xl p-6 border-2 border-accent-pink/30 hover:border-accent-pink hover:shadow-xl hover:shadow-accent-pink/20 transition-all duration-300"
             >
-              <h5 className="font-bold text-neutral-900 dark:text-white mb-2">AI Mentor at GIAIC</h5>
+              <h5 className="font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2">
+                <span>🚀</span>
+                AI Mentor at GIAIC
+              </h5>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">Mentoring next-gen AI developers</p>
             </motion.div>
           </div>
