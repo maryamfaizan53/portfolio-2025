@@ -12,7 +12,7 @@ export default function Navigation() {
 
   useEffect(() => {
     setMounted(true)
-    const savedTheme = localStorage.getItem("theme") || "dark"
+    const savedTheme = localStorage.getItem("theme") || "light"
     const isDarkMode = savedTheme === "dark"
     setIsDark(isDarkMode)
 
@@ -140,7 +140,7 @@ export default function Navigation() {
               >
                 Maryam Faizan
               </motion.span>
-              <motion.span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-accent-teal via-accent-pink to-accent-purple group-hover:w-full transition-all duration-300 rounded-full" />
+              <motion.span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary-500 to-accent-teal group-hover:w-full transition-all duration-300 rounded-full" />
             </Link>
 
             {/* Desktop Navigation */}

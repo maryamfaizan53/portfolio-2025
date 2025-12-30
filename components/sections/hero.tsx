@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-neutral-50 dark:bg-neutral-950 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-neutral-50 dark:bg-neutral-950 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <motion.div
         className="absolute w-3 h-3 rounded-full bg-accent-teal"
@@ -119,6 +119,8 @@ export default function Hero() {
               "linear-gradient(var(--color-neutral-50), var(--color-neutral-50)), conic-gradient(from 0deg, #2dd4bf, #a78bfa, #f472b6, #fbbf24, #2dd4bf)",
             backgroundOrigin: "border-box",
             backgroundClip: "padding-box, border-box",
+            width: "clamp(200px, 90vmin, 800px)",
+            height: "clamp(200px, 90vmin, 800px)",
           }}
           whileHover={{
             scale: 1.05,
@@ -133,6 +135,8 @@ export default function Hero() {
               "linear-gradient(var(--color-neutral-50), var(--color-neutral-50)), conic-gradient(from 90deg, #fbbf24, #f472b6, #a78bfa, #2dd4bf, #fbbf24)",
             backgroundOrigin: "border-box",
             backgroundClip: "padding-box, border-box",
+            width: "clamp(150px, 70vmin, 650px)",
+            height: "clamp(150px, 70vmin, 650px)",
           }}
           animate={{
             rotate: 360,
@@ -154,6 +158,8 @@ export default function Hero() {
               "linear-gradient(var(--color-neutral-50), var(--color-neutral-50)), conic-gradient(from 180deg, #a78bfa, #2dd4bf, #fbbf24, #f472b6, #a78bfa)",
             backgroundOrigin: "border-box",
             backgroundClip: "padding-box, border-box",
+            width: "clamp(100px, 50vmin, 500px)",
+            height: "clamp(100px, 50vmin, 500px)",
           }}
           animate={{
             rotate: -360,
@@ -173,14 +179,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative z-10 text-center space-y-8 max-w-2xl"
+          className="relative z-10 text-center space-y-4 sm:space-y-6 md:space-y-8 max-w-full px-4 sm:max-w-2xl"
         >
           {/* Profile Photo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center mb-8"
+            className="flex justify-center mb-4 sm:mb-6 md:mb-8"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
@@ -203,7 +209,7 @@ export default function Hero() {
                 <div className="w-full h-full bg-neutral-50 dark:bg-neutral-950 rounded-full" />
               </motion.div>
               <motion.div
-                className="profile-circle relative w-32 h-32 rounded-full overflow-hidden border-2 border-neutral-300 dark:border-neutral-700 glow-on-hover"
+                className="profile-circle relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-neutral-300 dark:border-neutral-700 glow-on-hover"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -242,7 +248,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 font-light"
+            className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-400 dark:text-neutral-500 font-light"
           >
             <motion.span
               className="bg-gradient-to-r from-accent-teal via-accent-purple to-accent-pink bg-clip-text text-transparent"
@@ -267,13 +273,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white space-y-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white space-y-1 sm:space-y-2"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="flex items-center justify-center gap-3 text-3xl md:text-4xl font-light"
+              className="flex items-center justify-center gap-2 sm:gap-3 text-lg sm:text-2xl md:text-3xl font-light"
             >
               <span className="text-neutral-600 dark:text-neutral-400">Hi, I am</span>
             </motion.div>
@@ -317,7 +323,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex justify-center gap-8 pt-8"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 pt-6 sm:pt-8"
           >
             {navItems.map((item, idx) => (
               <motion.div
@@ -330,7 +336,7 @@ export default function Hero() {
               >
                 <Link
                   href={item.href}
-                  className="relative text-sm uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-all duration-300 group"
+                  className="relative text-xs sm:text-sm uppercase tracking-wider text-neutral-500 dark:text-neutral-400 transition-all duration-300 group"
                 >
                   {item.label}
                   <motion.span
@@ -351,7 +357,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 hidden sm:block"
       >
         <motion.div
           animate={{
