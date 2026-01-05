@@ -32,7 +32,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce blog website built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/fashion fusion.PNG",
+      image: "/fashion-fusion.PNG",
       liveUrl: "https://blog-website-in-next-js-14-with-sanity-io-latest-puh7.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -91,7 +91,7 @@ export default function Projects() {
       description:
         "Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.",
       tech: ["Next.js", "OpenAI", "React", "TypeScript", "Tailwind CSS"],
-      image: "/pickup lines.PNG",
+      image: "/pickup-lines.PNG",
       liveUrl: "https://frontend-pickuplines-wrcb.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/frontend_pickuplines",
     },
