@@ -12,7 +12,7 @@ export default function Projects() {
       description:
         "Modern full-stack AI Tracker built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/food.PNG",
+      image: "/placeholder.jpg",
       liveUrl: "https://bhook-khana-tracker.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -22,7 +22,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/furnisite.PNG",
+      image: "/ecommerce-shopping-platform.jpg",
       liveUrl: "https://main-hackathon-proj-final-updates-latest-v5.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -42,7 +42,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/shophub.PNG",
+      image: "/ecommerce-shopping-platform.jpg",
       liveUrl: "https://hackathon-main-project-2.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -52,7 +52,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/shopco.PNG",
+      image: "/ecommerce-shopping-platform.jpg",
       liveUrl: "",
       githubUrl: "#",
       featured: true,
@@ -62,7 +62,7 @@ export default function Projects() {
       description:
         "AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.",
       tech: ["Next.js", "OpenAI API", "React", "MongoDB", "Node.js"],
-      image: "/financial.PNG",
+      image: "/finance-dashboard-analytics.jpg",
       liveUrl: "https://geniefy-my-finance-scss.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/geniefy-my-finance",
       featured: true,
@@ -72,7 +72,7 @@ export default function Projects() {
       description:
         "Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.",
       tech: ["Next.js", "AI/ML", "React", "Python", "MongoDB"],
-      image: "/style.PNG",
+      image: "/fashion-clothing-ai-recommendations.jpg",
       liveUrl: "https://ai-fashion-ecommerce.lumi.ing",
       githubUrl: "#",
       featured: true,
