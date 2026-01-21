@@ -62,7 +62,7 @@ export default function Projects() {
       description:
         "AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.",
       tech: ["Next.js", "OpenAI API", "React", "MongoDB", "Node.js"],
-      image: "\financial.PNG",
+      image: "/financial.PNG",
       liveUrl: "https://geniefy-my-finance-scss.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/geniefy-my-finance",
       featured: true,
@@ -91,7 +91,7 @@ export default function Projects() {
       description:
         "Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.",
       tech: ["Next.js", "OpenAI", "React", "TypeScript", "Tailwind CSS"],
-      image:"/public/pickuplines.PNG",
+      image:"/pickuplines.PNG",
       liveUrl: "https://frontend-pickuplines-wrcb.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/frontend_pickuplines",
     },
