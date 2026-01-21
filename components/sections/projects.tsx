@@ -12,7 +12,7 @@ export default function Projects() {
       description:
         "Modern full-stack AI Tracker built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/public/food.PNG",
+      image: "/food.PNG",
       liveUrl: "https://bhook-khana-tracker.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -22,7 +22,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/public/furnisite.PNG",
+      image: "/furnisite.PNG",
       liveUrl: "https://main-hackathon-proj-final-updates-latest-v5.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -32,7 +32,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce blog website built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/public/fashionfusion.PNG",
+      image: "/fashionfusion.PNG",
       liveUrl: "https://blog-website-in-next-js-14-with-sanity-io-latest-puh7.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -42,7 +42,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/public/shopco.PNG",
+      image: "/shophub.PNG",
       liveUrl: "https://hackathon-main-project-2.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -52,7 +52,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/ecommerce-shopping-platform.jpg",
+      image: "/shopco.PNG",
       liveUrl: "",
       githubUrl: "#",
       featured: true,
@@ -72,7 +72,7 @@ export default function Projects() {
       description:
         "Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.",
       tech: ["Next.js", "AI/ML", "React", "Python", "MongoDB"],
-      image: "/fashion-clothing-ai-recommendations.jpg",
+      image: "/style.PNG",
       liveUrl: "https://ai-fashion-ecommerce.lumi.ing",
       githubUrl: "#",
       featured: true,
