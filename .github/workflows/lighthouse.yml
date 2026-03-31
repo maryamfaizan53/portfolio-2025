@@ -20,6 +20,6 @@ jobs:
       - name: Start server and run LHCI
         # Start Next.js in background, wait for port, then run LHCI autorun via npx
         run: |
-          npm run ci:start &
+          npm run start &
           npx -y wait-on http://localhost:3000
           npx -y @lhci/cli autorun --config=.lighthouseci.json

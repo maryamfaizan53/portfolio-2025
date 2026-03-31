@@ -37,7 +37,6 @@ export default function Navigation() {
     }
 
     setIsDark(newIsDark)
-    window.dispatchEvent(new CustomEvent("themeChanged", { detail: { isDark: newIsDark } }))
   }
 
   const navItems = [
@@ -77,7 +76,7 @@ export default function Navigation() {
           <Github size={20} />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://instagram.com/maryamfaizan53"
           target="_blank"
           rel="noopener noreferrer"
           className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
@@ -186,6 +185,7 @@ export default function Navigation() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>

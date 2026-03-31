@@ -63,12 +63,21 @@ Guidelines:
 - Always maintain a professional yet approachable tone
 - If asked about something not in your knowledge, suggest contacting Maryam directly`
 
+interface ChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
+
 export async function POST(req: Request) {
   try {
     const { message, history } = await req.json()
 
     if (!message || typeof message !== 'string') {
       return Response.json({ error: 'Invalid message' }, { status: 400 })
+    }
+
+    if (message.length > 1000) {
+      return Response.json({ error: 'Message too long (max 1000 characters)' }, { status: 400 })
     }
 
     if (!process.env.OPENAI_API_KEY) {
@@ -78,11 +87,12 @@ export async function POST(req: Request) {
       )
     }
 
-    // Prepare conversation history for context
-    const conversationHistory = history?.map((msg: any) => ({
+    // Limit history to last 10 turns to prevent token abuse
+    const rawHistory: ChatMessage[] = Array.isArray(history) ? history.slice(-10) : []
+    const conversationHistory = rawHistory.map((msg) => ({
       role: msg.role,
-      content: msg.content,
-    })) || []
+      content: typeof msg.content === 'string' ? msg.content.slice(0, 1000) : '',
+    }))
 
     const { text } = await generateText({
       model: openai('gpt-4o-mini'),

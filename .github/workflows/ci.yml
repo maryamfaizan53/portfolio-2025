@@ -22,4 +22,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: TypeScript check
-        run: npm run test:ts
+        run: npm run type-check

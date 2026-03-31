@@ -9,6 +9,7 @@ import Projects from "@/components/sections/projects"
 import Experience from "@/components/sections/experience"
 import Contact from "@/components/sections/contact"
 import ChatBot from "@/components/chatbot"
+import Footer from "@/components/footer"
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -22,6 +23,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
       <ChatBot isOpen={chatOpen} onToggle={setChatOpen} />
     </main>
   )

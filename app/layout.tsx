@@ -4,12 +4,7 @@ import './globals.css'
 
 import ThemeProvider from '@/components/theme-provider'
 
-import { Inter, DM_Sans as V0_Font_DM_Sans, Space_Mono as V0_Font_Space_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
-
-// Initialize fonts
-const _dmSans = V0_Font_DM_Sans({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900","1000"] })
-const _spaceMono = V0_Font_Space_Mono({ subsets: ['latin'], weight: ["400","700"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +13,7 @@ export const metadata: Metadata = {
   description: 'Agentic AI Developer with expertise in multi-agent systems, automation, RAG pipelines, and full-stack web development. Building AI-driven solutions with Next.js, React, and Python.',
   keywords: 'AI Developer, Full-Stack, Next.js, React, Automation, RAG, Multi-Agent Systems',
   authors: [{ name: 'Maryam Faizan' }],
+  metadataBase: new URL('https://portfolio-nextjs-tailwind-flax.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -25,12 +21,13 @@ export const metadata: Metadata = {
     title: 'Maryam Faizan | Agentic AI Developer',
     description: 'Full-stack innovator specializing in AI automation and modern web development',
     siteName: 'Maryam Faizan Portfolio',
+    images: [{ url: '/images/mask-dp.jpg', width: 1200, height: 630, alt: 'Maryam Faizan' }],
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@maryamfaizan53',
-  },
-    generator: 'v0.app'
+    images: ['/images/mask-dp.jpg'],
+  }
 }
 
 export default function RootLayout({
