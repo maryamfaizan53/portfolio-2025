@@ -1,6 +1,7 @@
 import { openai } from '@ai-sdk/openai'
 import { generateText } from 'ai'
 import { z } from 'zod'
+import { NextResponse } from 'next/server'
 
 // Portfolio data context
 const portfolioData = {
@@ -73,15 +74,15 @@ export async function POST(req: Request) {
     const { message, history } = await req.json()
 
     if (!message || typeof message !== 'string') {
-      return Response.json({ error: 'Invalid message' }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid message' }, { status: 400 })
     }
 
     if (message.length > 1000) {
-      return Response.json({ error: 'Message too long (max 1000 characters)' }, { status: 400 })
+      return NextResponse.json({ error: 'Message too long (max 1000 characters)' }, { status: 400 })
     }
 
     if (!process.env.OPENAI_API_KEY) {
-      return Response.json(
+      return NextResponse.json(
         { error: 'OpenAI API key not configured' },
         { status: 500 }
       )
@@ -105,10 +106,10 @@ export async function POST(req: Request) {
       maxTokens: 300,
     })
 
-    return Response.json({ reply: text })
+    return NextResponse.json({ reply: text })
   } catch (error) {
     console.error('[v0] Chat error:', error)
-    return Response.json(
+    return NextResponse.json(
       { error: 'Failed to generate response' },
       { status: 500 }
     )
