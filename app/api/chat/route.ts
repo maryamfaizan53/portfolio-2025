@@ -103,7 +103,7 @@ export async function POST(req: Request) {
         { role: 'user', content: message },
       ],
       temperature: 0.7,
-      maxTokens: 300,
+      maxOutputTokens: 300,
     })
 
     return NextResponse.json({ reply: text })
