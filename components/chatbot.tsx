@@ -1,13 +1,15 @@
-'use client'
+"use client"
 
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import type React from "react"
+
+import { useState, useRef, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { MessageCircle, X, Send, Loader2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 interface Message {
-  role: 'user' | 'assistant'
+  role: "user" | "assistant"
   content: string
 }
 
@@ -18,7 +20,7 @@ interface ChatBotProps {
 
 export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
   const [mounted, setMounted] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -28,15 +30,16 @@ export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
   }, [])
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setMessages([
         {
-          role: 'assistant',
-          content: "Hi! I'm Maryam's AI Personal Assistant. Welcome! Feel free to ask me about her skills, projects, experience, or anything else you'd like to know. 😊",
+          role: "assistant",
+          content:
+            "Hi! I'm Maryam's AI Personal Assistant. Welcome! Feel free to ask me about her skills, projects, experience, or anything else you'd like to know.",
         },
       ])
     }
@@ -47,14 +50,14 @@ export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
     if (!input.trim() || loading) return
 
     const userMessage = input.trim()
-    setInput('')
-    setMessages((prev) => [...prev, { role: 'user', content: userMessage }])
+    setInput("")
+    setMessages((prev) => [...prev, { role: "user", content: userMessage }])
     setLoading(true)
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: userMessage,
           history: messages,
@@ -67,22 +70,19 @@ export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
         setMessages((prev) => [
           ...prev,
           {
-            role: 'assistant',
+            role: "assistant",
             content: "Sorry, I encountered an error. Please try again or contact Maryam directly.",
           },
         ])
       } else {
-        setMessages((prev) => [
-          ...prev,
-          { role: 'assistant', content: data.reply },
-        ])
+        setMessages((prev) => [...prev, { role: "assistant", content: data.reply }])
       }
     } catch (error) {
-      console.error('[v0] Error sending message:', error)
+      console.error("[v0] Error sending message:", error)
       setMessages((prev) => [
         ...prev,
         {
-          role: 'assistant',
+          role: "assistant",
           content: "I encountered an error. Please try again later.",
         },
       ])
@@ -152,13 +152,13 @@ export default function ChatBot({ isOpen, onToggle }: ChatBotProps) {
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
                     className={`max-w-xs px-4 py-2 rounded-lg ${
-                      msg.role === 'user'
-                        ? 'bg-primary-600 text-white rounded-br-none'
-                        : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 rounded-bl-none'
+                      msg.role === "user"
+                        ? "bg-primary-600 text-white rounded-br-none"
+                        : "bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 rounded-bl-none"
                     }`}
                   >
                     <p className="text-sm leading-relaxed">{msg.content}</p>

@@ -12,7 +12,7 @@ export default function Projects() {
       description:
         "Modern full-stack AI Tracker built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/food.PNG",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop",
       liveUrl: "https://bhook-khana-tracker.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -22,7 +22,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/furnisite.PNG",
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=500&fit=crop",
       liveUrl: "https://main-hackathon-proj-final-updates-latest-v5.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -32,7 +32,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce blog website built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/fashionfusion.PNG",
+      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=500&fit=crop",
       liveUrl: "https://blog-website-in-next-js-14-with-sanity-io-latest-puh7.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -42,7 +42,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/shophub.PNG",
+      image: "https://images.unsplash.com/photo-1563062840-3d5f88799235?w=800&h=500&fit=crop",
       liveUrl: "https://hackathon-main-project-2.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -52,7 +52,7 @@ export default function Projects() {
       description:
         "Modern full-stack e-commerce built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/shopco.PNG",
+      image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&h=500&fit=crop",
       liveUrl: "",
       githubUrl: "#",
       featured: true,
@@ -62,7 +62,7 @@ export default function Projects() {
       description:
         "AI-powered personal finance assistant that provides intelligent insights, expense tracking, and financial recommendations using advanced AI algorithms.",
       tech: ["Next.js", "OpenAI API", "React", "MongoDB", "Node.js"],
-      image: "/financial.PNG",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop",
       liveUrl: "https://geniefy-my-finance-scss.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/geniefy-my-finance",
       featured: true,
@@ -72,7 +72,7 @@ export default function Projects() {
       description:
         "Intelligent fashion recommendation system powered by AI. Analyzes user preferences and provides personalized product suggestions using machine learning.",
       tech: ["Next.js", "AI/ML", "React", "Python", "MongoDB"],
-      image: "/style.PNG",
+      image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=800&h=500&fit=crop",
       liveUrl: "https://ai-fashion-ecommerce.lumi.ing",
       githubUrl: "#",
       featured: true,
@@ -82,7 +82,7 @@ export default function Projects() {
       description:
         "Modern agency website showcasing automation tools and AI integration services. Demonstrates cutting-edge web design with interactive components.",
       tech: ["Next.js", "Framer Motion", "TypeScript", "Tailwind CSS"],
-      image: "/nexus.PNG",
+      image: "https://images.unsplash.com/photo-1460925895917-adf4e565e479?w=800&h=500&fit=crop",
       liveUrl: "https://nexus-ai-web-agency.vercel.app/",
       githubUrl: "#",
     },
@@ -91,7 +91,7 @@ export default function Projects() {
       description:
         "Fun, interactive AI app that generates creative pickup lines using GPT. Features smooth UI, theme support, and real-time generation.",
       tech: ["Next.js", "OpenAI", "React", "TypeScript", "Tailwind CSS"],
-      image:"/pickuplines.PNG",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f70d504f0?w=800&h=500&fit=crop",
       liveUrl: "https://frontend-pickuplines-wrcb.vercel.app/",
       githubUrl: "https://github.com/maryamfaizan53/frontend_pickuplines",
     },
@@ -100,7 +100,7 @@ export default function Projects() {
       description:
         "Interactive portfolio webiste with dymanic content built with Next.js, Stripe, and Sanity CMS. Features optimized performance, seamless checkout, and content management.",
       tech: ["Next.js", "TypeScript", "Stripe", "Sanity CMS", "Tailwind CSS"],
-      image: "/portfolio.PNG",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop",
       liveUrl: "https://maryams-portfolio-new.vercel.app/",
       githubUrl: "#",
       featured: true,
@@ -110,7 +110,7 @@ export default function Projects() {
       description:
         "Comprehensive platform for AI-generated code tutorials and learning resources. Helps developers master AI integration and modern development practices.",
       tech: ["Next.js", "React", "Sanity CMS", "Node.js", "MongoDB"],
-      image: "/aicodeshub.PNG",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop",
       liveUrl: "https://www.aicodeshub.com/",
       githubUrl: "#",
     },
