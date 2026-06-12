@@ -42,7 +42,7 @@ export default function Contact() {
     }
   }
 
-  const contactInfo = [
+  const contactInfo: Array<{ icon: typeof Mail; label: string; value: string; href?: string }> = [
     {
       icon: Mail,
       label: "Email",
@@ -59,7 +59,6 @@ export default function Contact() {
       icon: MapPin,
       label: "Location",
       value: "Karachi, Pakistan",
-      href: "#",
     },
   ]
 
@@ -77,9 +76,9 @@ export default function Contact() {
             initial={{ scale: 0, rotate: -180 }}
             whileInView={{ scale: 1, rotate: 0 }}
             transition={{ type: "spring", duration: 0.8 }}
-            className="inline-block text-6xl mb-4"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-teal to-accent-pink mb-4"
           >
-            📬
+            <Mail size={32} className="text-white" />
           </motion.div>
           <h2 className="heading-section">Get In Touch</h2>
           <div className="underline-accent mx-auto"></div>
@@ -107,11 +106,9 @@ export default function Contact() {
                 "bg-accent-pink/20 group-hover:bg-accent-pink text-accent-pink group-hover:text-white",
                 "bg-accent-purple/20 group-hover:bg-accent-purple text-accent-purple group-hover:text-white",
               ]
-              return (
-                <motion.a key={idx} href={info.href} whileHover={{ x: 5 }} className="flex gap-4 group">
-                  <div
-                    className={`flex-shrink-0 w-12 h-12 rounded-xl ${colors[idx]} flex items-center justify-center transition-all duration-300 shadow-lg`}
-                  >
+              const content = (
+                <>
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${colors[idx]} flex items-center justify-center transition-all duration-300 shadow-lg`}>
                     <Icon size={24} />
                   </div>
                   <div>
@@ -120,7 +117,16 @@ export default function Contact() {
                       {info.value}
                     </p>
                   </div>
+                </>
+              )
+              return info.href ? (
+                <motion.a key={idx} href={info.href} whileHover={{ x: 5 }} className="flex gap-4 group">
+                  {content}
                 </motion.a>
+              ) : (
+                <motion.div key={idx} whileHover={{ x: 5 }} className="flex gap-4 group">
+                  {content}
+                </motion.div>
               )
             })}
 

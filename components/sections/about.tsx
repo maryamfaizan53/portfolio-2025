@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { User } from "lucide-react"
 
 export default function About() {
   return (
@@ -19,9 +20,9 @@ export default function About() {
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               transition={{ type: "spring", duration: 0.6 }}
-              className="inline-block text-6xl mb-4"
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-teal to-accent-purple mb-4"
             >
-              👩‍💻
+              <User size={32} className="text-white" />
             </motion.div>
             <h2 className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-white">About Me</h2>
             <div className="underline-accent mx-auto"></div>

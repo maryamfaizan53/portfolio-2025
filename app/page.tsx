@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { MotionConfig } from "framer-motion"
 import Navigation from "@/components/navigation"
+import ScrollProgress from "@/components/scroll-progress"
 import Hero from "@/components/sections/hero"
 import About from "@/components/sections/about"
 import Skills from "@/components/sections/skills"
@@ -15,16 +17,19 @@ export default function Home() {
   const [chatOpen, setChatOpen] = useState(false)
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 relative overflow-x-hidden">
-      <Navigation />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-      <ChatBot isOpen={chatOpen} onToggle={setChatOpen} />
-    </main>
+    <MotionConfig reducedMotion="user">
+      <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 relative overflow-x-hidden">
+        <ScrollProgress />
+        <Navigation />
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Footer />
+        <ChatBot isOpen={chatOpen} onToggle={setChatOpen} />
+      </main>
+    </MotionConfig>
   )
 }

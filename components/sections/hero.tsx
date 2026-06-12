@@ -1,19 +1,30 @@
 "use client"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { useState, useEffect } from "react"
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
+
+  // Motion values keep the cursor trail off the React render path —
+  // mouse movement animates these directly without re-rendering the section.
+  const cursorX = useMotionValue(-100)
+  const cursorY = useMotionValue(-100)
+  const trailX = useSpring(cursorX, { stiffness: 400, damping: 35 })
+  const trailY = useSpring(cursorY, { stiffness: 400, damping: 35 })
+  const trailXBack = useTransform(trailX, (v) => v - 20)
+  const trailYBack = useTransform(trailY, (v) => v - 20)
+  const trailXFront = useTransform(trailX, (v) => v + 20)
+  const trailYFront = useTransform(trailY, (v) => v + 20)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
     }
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+  }, [cursorX, cursorY])
 
   const navItems = [
     { label: "ABOUT", href: "#about" },
@@ -21,9 +32,6 @@ export default function Hero() {
     { label: "SKILLS", href: "#skills" },
     { label: "PROJECTS", href: "#projects" },
   ]
-
-  const text = "Hi I am Maryam Faizan"
-  const words = text.split(" ")
 
   return (
     <section
@@ -33,8 +41,8 @@ export default function Hero() {
       <motion.div
         className="absolute w-3 h-3 rounded-full bg-accent-teal"
         style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
+          left: trailX,
+          top: trailY,
         }}
         animate={{
           scale: [1, 1.5, 1],
@@ -49,8 +57,8 @@ export default function Hero() {
       <motion.div
         className="absolute w-2 h-2 rounded-full bg-accent-pink"
         style={{
-          left: mousePosition.x - 20,
-          top: mousePosition.y - 20,
+          left: trailXBack,
+          top: trailYBack,
         }}
         animate={{
           scale: [1, 1.3, 1],
@@ -66,8 +74,8 @@ export default function Hero() {
       <motion.div
         className="absolute w-2.5 h-2.5 rounded-full bg-accent-purple"
         style={{
-          left: mousePosition.x + 20,
-          top: mousePosition.y + 20,
+          left: trailXFront,
+          top: trailYFront,
         }}
         animate={{
           scale: [1, 1.4, 1],

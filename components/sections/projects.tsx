@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import TiltCard from "@/components/tilt-card"
 
 export default function Projects() {
   const projects = [
@@ -53,7 +54,6 @@ export default function Projects() {
         "Responsive clothing e-commerce app with product filtering, size selection, wishlist, and a streamlined checkout flow.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity CMS"],
       image: "/shopco.PNG",
-      liveUrl: "https://github.com/maryamfaizan53",
       githubUrl: "#",
       featured: true,
     },
@@ -160,10 +160,9 @@ export default function Projects() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02, rotate: 1 }}
-              whileTap={{ scale: 0.98 }}
-              className={`group rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20 ${project.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className={project.featured ? "md:col-span-2 lg:col-span-1" : ""}
             >
+              <TiltCard className="group h-full flex flex-col rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20">
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -180,7 +179,7 @@ export default function Projects() {
                 />
               </div>
 
-              <div className="p-6 bg-white dark:bg-neutral-800">
+              <div className="p-6 bg-white dark:bg-neutral-800 flex-1 flex flex-col">
                 {project.featured && (
                   <div className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 rounded-full mb-3">
                     <span className="text-xs font-semibold text-primary-600 dark:text-primary-400">Featured</span>
@@ -191,7 +190,7 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-6 flex-1">
                   {project.tech.slice(0, 3).map((tech, i) => (
                     <span
                       key={i}
@@ -227,6 +226,7 @@ export default function Projects() {
                   )}
                 </div>
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

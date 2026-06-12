@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Briefcase, GraduationCap, Star, Rocket } from "lucide-react"
 
 export default function Experience() {
   const experiences = [
@@ -26,7 +26,7 @@ export default function Experience() {
       description:
         "Built autonomous workflows and optimized full-stack applications. Implemented CI/CD pipelines and improved system performance.",
       achievements: [
-        "Built autonomous multi-agent workflows using Python and OpenAI SDK",
+        "Architected Python-based automation pipelines integrating OpenAI SDK for multi-step task orchestration",
         "Developed frontend features with React.js/Next.js improving UX by 40%",
         "Automated workflows using n8n for multi-step AI tasks",
         "Optimized PostgreSQL queries reducing latency by 60%",
@@ -68,9 +68,9 @@ export default function Experience() {
             initial={{ rotate: -10, scale: 0 }}
             whileInView={{ rotate: 0, scale: 1 }}
             transition={{ type: "spring", duration: 0.8 }}
-            className="inline-block text-6xl mb-4"
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-pink to-accent-purple mb-4"
           >
-            💼
+            <Briefcase size={32} className="text-white" />
           </motion.div>
           <h2 className="heading-section">Experience & Education</h2>
           <div className="underline-accent mx-auto"></div>
@@ -138,7 +138,9 @@ export default function Experience() {
           className="space-y-6"
         >
           <h3 className="text-2xl font-bold text-neutral-900 dark:text-white flex items-center gap-3">
-            <span className="text-3xl">🎓</span>
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-accent-purple to-accent-pink">
+              <GraduationCap size={20} className="text-white" />
+            </span>
             Education & Certifications
           </h3>
 
@@ -160,7 +162,7 @@ export default function Experience() {
               className="bg-white dark:bg-neutral-800 rounded-2xl p-6 border-2 border-accent-teal/30 hover:border-accent-teal hover:shadow-xl hover:shadow-accent-teal/20 transition-all duration-300"
             >
               <h5 className="font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2">
-                <span>⭐</span>
+                <Star size={16} className="text-accent-yellow" />
                 Next.js Open Source Contributor
               </h5>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">Active contributor to Next.js ecosystem</p>
@@ -170,7 +172,7 @@ export default function Experience() {
               className="bg-white dark:bg-neutral-800 rounded-2xl p-6 border-2 border-accent-pink/30 hover:border-accent-pink hover:shadow-xl hover:shadow-accent-pink/20 transition-all duration-300"
             >
               <h5 className="font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2">
-                <span>🚀</span>
+                <Rocket size={16} className="text-accent-pink" />
                 AI Mentor at GIAIC
               </h5>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">Mentoring next-gen AI developers</p>

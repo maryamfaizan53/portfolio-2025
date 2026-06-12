@@ -42,7 +42,7 @@ export default function Footer() {
                   <li key={item}>
                     <Link
                       href={`#${item.toLowerCase()}`}
-                      className="hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
+                      className="group hover:text-primary-400 transition-colors duration-200 flex items-center gap-2"
                     >
                       {item}
                       <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
