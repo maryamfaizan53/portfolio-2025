@@ -162,8 +162,9 @@ export default function Projects() {
               variants={itemVariants}
               className={project.featured ? "md:col-span-2 lg:col-span-1" : ""}
             >
-              <TiltCard className="group h-full flex flex-col rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
+              <TiltCard className="group h-full rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-300 hover:shadow-xl dark:hover:shadow-primary-500/20">
+              <div className="h-full flex flex-col overflow-hidden rounded-xl">
+              <div className="relative h-48 shrink-0 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -225,6 +226,7 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
+              </div>
               </div>
               </TiltCard>
             </motion.div>
